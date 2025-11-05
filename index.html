@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>梦幻浪漫告白 - 雀跃版</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'love': '#ff6b9d',
+                        'magic': '#9b59b6',
+                        'sky': '#3498db',
+                        'gold': '#ffd700',
+                        'morandi-pink': '#e8c5b5',
+                        'morandi-purple': '#c7b9d8'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background: linear-gradient(45deg, #ff6b9d, #9b59b6, #3498db, #ffd700);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: gradientShift 4s ease infinite;
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            }
+            .mobile-btn {
+                transition: all 0.2s ease;
+                touch-action: manipulation;
+                user-select: none;
+            }
+            .mobile-btn:active {
+                transform: scale(0.95);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+            .btn-glow {
+                box-shadow: 0 0 25px rgba(255, 107, 157, 0.7);
+            }
+            .btn-glow-strong {
+                box-shadow: 0 0 40px rgba(255, 107, 157, 0.9), 0 0 80px rgba(155, 89, 182, 0.7);
+                animation: glowPulse 2s ease-in-out infinite alternate;
+            }
+            .heart-beat {
+                animation: heartBeat 1.5s ease-in-out infinite;
+            }
+            .star-twinkle {
+                animation: starTwinkle 2s ease-in-out infinite alternate;
+            }
+            .butterfly-float {
+                animation: butterflyFloat 3s ease-in-out infinite;
+            }
+            .magic-sparkle {
+                animation: magicSparkle 2.5s ease-in-out infinite;
+            }
+            .bubble-rise {
+                animation: bubbleRise 4s ease-out infinite;
+            }
+            .rotate-slow {
+                animation: rotateSlow 6s linear infinite;
+            }
+            .pulse-glow {
+                animation: pulseGlow 2s ease-in-out infinite;
+            }
+            .celebrate-jump {
+                animation: celebrateJump 0.8s ease-in-out infinite;
+            }
+            .fireworks {
+                animation: fireworks 1.5s ease-out infinite;
+            }
+            .explosion {
+                animation: explosion 1s ease-out forwards;
+            }
+            .tada {
+                animation: tada 1s ease-in-out infinite;
+            }
+            .bounce-in {
+                animation: bounceIn 0.6s ease-out forwards;
+            }
+            .zoom-in-out {
+                animation: zoomInOut 2s ease-in-out infinite;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+        
+        @keyframes pulse-simple {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pop-simple {
+            0% { transform: scale(0.9) rotate(-5deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(-360deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes confettiFloat {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        @keyframes starTwinkle {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            100% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+        }
+        
+        @keyframes butterflyFloat {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-8px) translateX(5px) rotate(5deg); }
+            50% { transform: translateY(-12px) translateX(0) rotate(0deg); }
+            75% { transform: translateY(-8px) translateX(-5px) rotate(-5deg); }
+        }
+        
+        @keyframes magicSparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+        }
+        
+        @keyframes bubbleRise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 157, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 107, 157, 0.9), 0 0 60px rgba(155, 89, 182, 0.7); }
+        }
+        
+        @keyframes glowPulse {
+            from { box-shadow: 0 0 30px rgba(255, 107, 157, 0.8), 0 0 60px rgba(155, 89, 182, 0.6); }
+            to { box-shadow: 0 0 40px rgba(255, 107, 157, 1), 0 0 80px rgba(155, 89, 182, 0.8), 0 0 100px rgba(255, 215, 0, 0.5); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 0.8; }
+        }
+        
+        @keyframes rainbowGlow {
+            0% { box-shadow: 0 0 20px #ff6b9d; }
+            25% { box-shadow: 0 0 20px #9b59b6; }
+            50% { box-shadow: 0 0 20px #3498db; }
+            75% { box-shadow: 0 0 20px #ffd700; }
+            100% { box-shadow: 0 0 20px #ff6b9d; }
+        }
+        
+        @keyframes floatSideways {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(10px) translateY(-5px) rotate(5deg); }
+            50% { transform: translateX(0) translateY(-10px) rotate(0deg); }
+            75% { transform: translateX(-10px) translateY(-5px) rotate(-5deg); }
+        }
+        
+        @keyframes celebrateJump {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
+        @keyframes fireworks {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(2) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes explosion {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+        @keyframes tada {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: scale(1.1) rotate(-1deg); }
+            20%, 40%, 60%, 80% { transform: scale(1.1) rotate(1deg); }
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes zoomInOut {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* 移动端优化样式 */
+        @media (max-width: 640px) {
+            .mobile-optimized {
+                padding: 0.5rem;
+                margin: 0;
+            }
+            
+            .mobile-card {
+                width: 95vw;
+                max-width: 95vw;
+                padding: 2rem 1.5rem;
+                margin: 0 auto;
+            }
+            
+            .mobile-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .mobile-heart {
+                font-size: 1.5rem;
+                margin: 0 0.3rem;
+            }
+            
+            .mobile-heart-large {
+                font-size: 2rem;
+                margin: 0 0.5rem;
+            }
+            
+            .mobile-text {
+                font-size: 1.3rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .mobile-btn {
+                width: 100%;
+                padding: 1.4rem 1rem;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                border-radius: 1rem;
+            }
+            
+            .mobile-modal {
+                width: 95vw;
+                max-width: 95vw;
+                padding: 2rem 1.5rem;
+                margin: 0 auto;
+            }
+            
+            .mobile-runaway-btn {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+                border-radius: 1rem;
+                min-width: 160px;
+                min-height: 56px;
+            }
+            
+            .celebration-text {
+                font-size: 1.8rem;
+                font-weight: bold;
+                text-align: center;
+                margin: 1rem 0;
+                animation: tada 1s ease-in-out infinite;
+            }
+        }
+        
+        /* 防止页面滚动 */
+        body {
+            overflow: hidden;
+            touch-action: none;
+        }
+        
+        /* 硬件加速优化 */
+        .hardware-accelerated {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: transform, opacity, box-shadow;
+        }
+        
+        /* 装饰元素 */
+        .floating-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            animation-duration: 4s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+        
+        .celebration-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 15;
+        }
+        
+        .background-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .firework-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 20;
+        }
+        
+        /* 动态背景 */
+        .dynamic-bg {
+            background: linear-gradient(135deg, #ffeef5 0%, #f0e6ff 25%, #e6f3ff 50%, #fff0f5 75%, #ffeef5 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        /* 圆环装饰 */
+        .circle-decoration {
+            position: fixed;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+            animation: rotateSlow 10s linear infinite;
+        }
+        
+        /* 发光圆环 */
+        .glow-circle {
+            position: fixed;
+            border: 1px solid rgba(255, 107, 157, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        /* 雀跃文字样式 */
+        .excited-text {
+            position: fixed;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b9d;
+            text-align: center;
+            pointer-events: none;
+            z-index: 25;
+            animation: celebrateJump 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center mobile-optimized overflow-hidden dynamic-bg font-inter hardware-accelerated">
+    <!-- 背景装饰圆环 -->
+    <div class="circle-decoration hardware-accelerated" style="width: 300px; height: 300px; top: -100px; left: -100px;"></div>
+    <div class="circle-decoration hardware-accelerated" style="width: 200px; height: 200px; bottom: -50px; right: -50px; animation-delay: 2s;"></div>
+    <div class="circle-decoration hardware-accelerated" style="width: 150px; height: 150px; top: 20%; right: 10%; animation-delay: 4s;"></div>
+    
+    <!-- 发光圆环 -->
+    <div class="glow-circle hardware-accelerated" style="width: 250px; height: 250px; top: 10%; left: 20%;"></div>
+    <div class="glow-circle hardware-accelerated" style="width: 180px; height: 180px; bottom: 20%; right: 25%; animation-delay: 1.5s;"></div>
+    
+    <!-- 主卡片 -->
+    <div class="relative z-10 mobile-card hardware-accelerated">
+        <!-- 主内容 -->
+        <div class="relative glass-card rounded-3xl p-8 text-center hardware-accelerated pulse-glow">
+            <!-- 标题 -->
+            <h1 class="mobile-title font-bold mb-6 text-gradient animate-float hardware-accelerated">乖乖</h1>
+            
+            <!-- 爱心装饰 -->
+            <div class="flex justify-center items-center mb-8 hardware-accelerated">
+                <div class="mobile-heart animate-pulse-simple heart-beat hardware-accelerated">💖</div>
+                <div class="mobile-heart-large animate-pulse-simple butterfly-float hardware-accelerated">💕</div>
+                <div class="mobile-heart-large animate-pulse-simple heart-beat hardware-accelerated">❤️</div>
+                <div class="mobile-heart-large animate-pulse-simple butterfly-float hardware-accelerated">💕</div>
+                <div class="mobile-heart animate-pulse-simple heart-beat hardware-accelerated">💖</div>
+            </div>
+            
+            <!-- 告白文字 -->
+            <div class="mb-8 hardware-accelerated">
+                <p class="mobile-text font-semibold text-gray-800 mb-4 animate-float hardware-accelerated">我喜欢你</p>
+                <p class="mobile-text text-gray-600 animate-float hardware-accelerated" style="animation-delay: 0.5s;">做我女朋友吧</p>
+            </div>
+            
+            <!-- 装饰元素 -->
+            <div class="flex justify-center items-center mb-6 hardware-accelerated">
+                <div class="text-2xl star-twinkle mx-2 hardware-accelerated">⭐</div>
+                <div class="text-2xl magic-sparkle mx-2 hardware-accelerated">✨</div>
+                <div class="text-2xl star-twinkle mx-2 hardware-accelerated">💫</div>
+            </div>
+            
+            <!-- 按钮 -->
+            <div class="space-y-4 hardware-accelerated">
+                <button id="acceptBtn" class="mobile-btn bg-gradient-to-r from-love to-magic text-white font-bold btn-glow-strong hover:btn-glow-strong transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                    <i class="fa fa-heart mr-3 heart-beat hardware-accelerated"></i>我愿意
+                </button>
+                
+                <button id="rejectBtn" class="mobile-btn bg-gradient-to-r from-morandi-pink to-morandi-purple text-gray-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                    <i class="fa fa-times mr-3 hardware-accelerated"></i>考虑一下
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 调皮模态框 -->
+    <div id="teaseModal" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-20 hidden flex items-center justify-center p-4 hardware-accelerated">
+        <div class="glass-card rounded-3xl p-6 mobile-modal hardware-accelerated pulse-glow">
+            <div id="teaseContent">
+                <div class="text-6xl mb-4 animate-pulse-simple hardware-accelerated">😜</div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3 hardware-accelerated">嘿嘿，开玩笑的吧？</h2>
+                <p class="text-lg text-gray-700 mb-6 hardware-accelerated">我知道你心里是愿意的 😉 你的眼神已经出卖了你哦！</p>
+                <div class="flex space-x-3 mb-4 hardware-accelerated">
+                    <button id="teaseRejectBtn" class="flex-1 mobile-btn bg-gradient-to-r from-morandi-pink to-morandi-purple text-gray-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                        <i class="fa fa-times mr-2 hardware-accelerated"></i>还是拒绝
+                    </button>
+                    <button id="teaseAcceptBtn" class="flex-1 mobile-btn bg-gradient-to-r from-love to-magic text-white font-bold btn-glow hover:btn-glow-strong transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                        <i class="fa fa-heart mr-2 heart-beat hardware-accelerated"></i>好吧，我愿意
+                    </button>
+                </div>
+                <div class="text-3xl animate-float hardware-accelerated">😜💖😜✨⭐</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 惊喜模态框 -->
+    <div id="surpriseModal" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-20 hidden flex items-center justify-center p-4 hardware-accelerated">
+        <div class="glass-card rounded-3xl p-6 text-center mobile-modal hardware-accelerated pulse-glow">
+            <div class="text-5xl mb-4 animate-pulse-simple hardware-accelerated">🎉</div>
+            <h2 class="text-2xl font-bold mb-4 text-gradient hardware-accelerated">告白当然要见面说</h2>
+            <h3 class="text-3xl font-bold mb-6 text-love hardware-accelerated">下楼！！</h3>
+            <div class="flex justify-center items-center mb-6 hardware-accelerated">
+                <div class="text-3xl animate-float mx-2 hardware-accelerated">💖</div>
+                <div class="text-4xl animate-pulse-simple mx-2 hardware-accelerated">💕</div>
+                <div class="text-3xl animate-float mx-2 hardware-accelerated">💘</div>
+                <div class="text-4xl star-twinkle mx-2 hardware-accelerated">⭐</div>
+            </div>
+            <button id="surpriseBtn" class="mobile-btn bg-gradient-to-r from-gold to-love text-white font-bold btn-glow-strong hover:btn-glow-strong transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                <i class="fa fa-arrow-down mr-3 animate-pulse-simple hardware-accelerated"></i>收到
+            </button>
+        </div>
+    </div>
+    
+    <!-- 通知 -->
+    <div id="notification" class="fixed top-4 right-4 bg-gradient-to-r from-love to-magic text-white px-6 py-3 rounded-xl shadow-xl transform translate-x-full transition-transform duration-300 z-20 hidden animate-float hardware-accelerated">
+        快去楼下吧！他在等你呢！💖⭐
+    </div>
+    
+    <script>
+        // 全局变量
+        let clickCount = 0;
+        let isRunningAway = false;
+        let isCelebrating = false;
+        let runawayInterval = null;
+        let backgroundInterval = null;
+        
+        // DOM元素
+        const acceptBtn = document.getElementById('acceptBtn');
+        const rejectBtn = document.getElementById('rejectBtn');
+        const teaseModal = document.getElementById('teaseModal');
+        const surpriseModal = document.getElementById('surpriseModal');
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const notification = document.getElementById('notification');
+        
+        // 拒绝按钮的不同反应
+        const responses = [
+            {
+                face: '😜',
+                title: '嘿嘿，开玩笑的吧？',
+                text: '我知道你心里是愿意的 😉 你的眼神已经出卖了你哦！',
+                decor: '😜💖😜✨⭐'
+            },
+            {
+                face: '😂',
+                title: '还在嘴硬？',
+                text: '别装啦，我都看出来了！你其实很喜欢我对不对？',
+                decor: '😂💕😂💘⭐'
+            },
+            {
+                face: '🤪',
+                title: '别闹了，乖乖！',
+                text: '我们都知道结局的 😉 不如就从了我吧！',
+                decor: '🤪💘😚💖⭐'
+            },
+            {
+                face: '😂',
+                title: '哈哈，抓不到我！',
+                text: '看来你真的很喜欢我呢 😉 不过你是抓不到我的！',
+                decor: '😂💖🏃‍♂️✨⭐'
+            }
+        ];
+        
+        // 雀跃话语
+        const excitedMessages = [
+            '太好了！！',
+            '我就知道！',
+            '开心到飞起！',
+            '终于等到你！',
+            '我的心在跳！',
+            '梦想成真！',
+            '太幸福了！',
+            '爱你哟！',
+            '这是真的吗？',
+            '我好开心！',
+            'YES！YES！',
+            '太棒了！'
+        ];
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('梦幻浪漫告白 - 雀跃版 初始化');
+            
+            // 防止页面滚动和缩放
+            document.body.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+            
+            // 绑定所有事件
+            bindAllEvents();
+            
+            // 开始丰富的背景装饰
+            startRichBackgroundDecorations();
+            
+            // 添加背景粒子效果
+            startBackgroundParticles();
+            
+            console.log('初始化完成，所有功能已就绪');
+        });
+        
+        // 绑定所有事件
+        function bindAllEvents() {
+            console.log('绑定事件中...');
+            
+            // 主按钮事件
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', handleAccept);
+                acceptBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleAccept();
+                }, { passive: false });
+                console.log('接受按钮事件已绑定');
+            }
+            
+            if (rejectBtn) {
+                rejectBtn.addEventListener('click', handleReject);
+                rejectBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleReject();
+                }, { passive: false });
+                console.log('拒绝按钮事件已绑定');
+            }
+            
+            // 惊喜按钮事件
+            if (surpriseBtn) {
+                surpriseBtn.addEventListener('click', handleSurprise);
+                surpriseBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleSurprise();
+                }, { passive: false });
+                console.log('惊喜按钮事件已绑定');
+            }
+            
+            // 防止点击模态框外部关闭
+            if (teaseModal) {
+                teaseModal.addEventListener('click', function(e) {
+                    if (e.target === teaseModal) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                });
+                console.log('模态框外部点击事件已绑定');
+            }
+        }
+        
+        // 处理接受
+        function handleAccept() {
+            if (isCelebrating) return;
+            
+            isCelebrating = true;
+            console.log('处理接受 - 开始雀跃庆祝');
+            
+            // 隐藏所有模态框
+            teaseModal.classList.add('hidden');
+            
+            // 停止逃跑模式
+            stopRunningAway();
+            
+            // 创建超丰富的庆祝动画
+            createSuperCelebration();
+            
+            // 显示雀跃话语
+            showExcitedMessages();
+            
+            // 15秒后显示惊喜弹窗
+            setTimeout(() => {
+                showSurpriseModal();
+            }, 15000);
+        }
+        
+        // 停止逃跑模式
+        function stopRunningAway() {
+            if (isRunningAway) {
+                isRunningAway = false;
+                
+                // 清除逃跑按钮的定时器
+                if (runawayInterval) {
+                    clearInterval(runawayInterval);
+                    runawayInterval = null;
+                }
+                
+                // 改变逃跑按钮为雀跃状态
+                const runawayBtn = document.getElementById('runawayBtn');
+                if (runawayBtn) {
+                    runawayBtn.innerHTML = '<i class="fa fa-heart mr-3 heart-beat hardware-accelerated"></i>太棒了！';
+                    runawayBtn.className = 'fixed z-20 mobile-runaway-btn mobile-btn bg-gradient-to-r from-gold to-love text-white font-bold btn-glow-strong shadow-xl celebrate-jump hardware-accelerated';
+                    runawayBtn.style.transition = 'all 0.3s ease';
+                    runawayBtn.style.left = '50%';
+                    runawayBtn.style.top = '80%';
+                    runawayBtn.style.transform = 'translate(-50%, 0)';
+                    
+                    // 移除点击事件
+                    runawayBtn.removeEventListener('click', handleRunawayClick);
+                    runawayBtn.removeEventListener('touchstart', handleRunawayTouch);
+                }
+            }
+        }
+        
+        // 处理拒绝
+        function handleReject() {
+            if (isCelebrating) return;
+            
+            clickCount++;
+            console.log('处理拒绝，点击次数：', clickCount);
+            
+            const response = responses[Math.min(clickCount - 1, responses.length - 1)];
+            if (response) {
+                showTeaseModal(response);
+            }
+            
+            // 4次后开始逃跑模式
+            if (clickCount >= 4) {
+                setTimeout(() => {
+                    teaseModal.classList.add('hidden');
+                    startRunningAway();
+                }, 1500);
+            }
+        }
+        
+        // 显示调皮模态框
+        function showTeaseModal(response) {
+            console.log('显示调皮模态框');
+            
+            const teaseContent = document.getElementById('teaseContent');
+            if (teaseContent) {
+                teaseContent.innerHTML = `
+                    <div class="text-6xl mb-4 animate-pulse-simple hardware-accelerated">${response.face}</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3 hardware-accelerated">${response.title}</h2>
+                    <p class="text-lg text-gray-700 mb-6 hardware-accelerated">${response.text}</p>
+                    <div class="flex space-x-3 mb-4 hardware-accelerated">
+                        <button id="teaseRejectBtn" class="flex-1 mobile-btn bg-gradient-to-r from-morandi-pink to-morandi-purple text-gray-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                            <i class="fa fa-times mr-2 hardware-accelerated"></i>还是拒绝
+                        </button>
+                        <button id="teaseAcceptBtn" class="flex-1 mobile-btn bg-gradient-to-r from-love to-magic text-white font-bold btn-glow hover:btn-glow-strong transition-all duration-300 transform hover:scale-105 hardware-accelerated">
+                            <i class="fa fa-heart mr-2 heart-beat hardware-accelerated"></i>好吧，我愿意
+                        </button>
+                    </div>
+                    <div class="text-3xl animate-float hardware-accelerated">${response.decor}</div>
+                `;
+                
+                // 重新绑定模态框按钮事件
+                setTimeout(() => {
+                    const newTeaseRejectBtn = document.getElementById('teaseRejectBtn');
+                    const newTeaseAcceptBtn = document.getElementById('teaseAcceptBtn');
+                    
+                    if (newTeaseRejectBtn) {
+                        newTeaseRejectBtn.addEventListener('click', handleTeaseReject);
+                        newTeaseRejectBtn.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+                            handleTeaseReject();
+                        }, { passive: false });
+                    }
+                    
+                    if (newTeaseAcceptBtn) {
+                        newTeaseAcceptBtn.addEventListener('click', handleTeaseAccept);
+                        newTeaseAcceptBtn.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+                            handleTeaseAccept();
+                        }, { passive: false });
+                    }
+                }, 100);
+            }
+            
+            teaseModal.classList.remove('hidden');
+            
+            // 添加弹出动画
+            setTimeout(() => {
+                const modal = teaseModal.querySelector('.glass-card');
+                if (modal) {
+                    modal.classList.add('animate-pop-simple');
+                }
+            }, 50);
+            
+            // 添加模态框出现的粒子效果
+            createModalParticles();
+        }
+        
+        // 处理模态框中的拒绝
+        function handleTeaseReject() {
+            console.log('处理模态框中的拒绝');
+            clickCount++;
+            
+            const response = responses[Math.min(clickCount - 1, responses.length - 1)];
+            if (response) {
+                showTeaseModal(response);
+            }
+            
+            // 4次后关闭弹窗并开始逃跑模式
+            if (clickCount >= 4) {
+                setTimeout(() => {
+                    teaseModal.classList.add('hidden');
+                    startRunningAway();
+                }, 1500);
+            }
+        }
+        
+        // 处理模态框中的接受
+        function handleTeaseAccept() {
+            console.log('处理模态框中的接受');
+            teaseModal.classList.add('hidden');
+            handleAccept();
+        }
+        
+        // 开始逃跑模式
+        function startRunningAway() {
+            isRunningAway = true;
+            console.log('开始逃跑模式');
+            
+            // 隐藏原按钮
+            if (rejectBtn) {
+                rejectBtn.classList.add('hidden');
+            }
+            
+            // 创建逃跑按钮
+            createRunawayButton();
+        }
+        
+        // 创建逃跑按钮
+        function createRunawayButton() {
+            console.log('创建逃跑按钮');
+            
+            let runawayBtn = document.getElementById('runawayBtn');
+            if (!runawayBtn) {
+                runawayBtn = document.createElement('button');
+                runawayBtn.id = 'runawayBtn';
+                runawayBtn.className = 'fixed z-20 mobile-runaway-btn mobile-btn bg-gradient-to-r from-love to-magic text-white font-bold btn-glow-strong shadow-xl animate-pulse-simple hardware-accelerated';
+                document.body.appendChild(runawayBtn);
+            }
+            
+            runawayBtn.innerHTML = '<i class="fa fa-running mr-3 hardware-accelerated"></i>抓不到我！';
+            resetButtonPosition(runawayBtn);
+            
+            // 绑定事件
+            runawayBtn.addEventListener('click', handleRunawayClick);
+            runawayBtn.addEventListener('touchstart', handleRunawayTouch, { passive: false });
+            
+            // 触摸移动时躲避
+            document.addEventListener('touchmove', function(e) {
+                if (runawayBtn && isRunningAway) {
+                    const touch = e.touches[0];
+                    const btnRect = runawayBtn.getBoundingClientRect();
+                    
+                    const distance = Math.sqrt(
+                        Math.pow(touch.clientX - (btnRect.left + btnRect.width/2), 2) +
+                        Math.pow(touch.clientY - (btnRect.top + btnRect.height/2), 2)
+                    );
+                    
+                    if (distance < 150) {
+                        moveButtonRandomly(runawayBtn);
+                    }
+                }
+            }, { passive: false });
+            
+            // 自动移动
+            runawayInterval = setInterval(() => {
+                if (runawayBtn && isRunningAway) {
+                    moveButtonRandomly(runawayBtn);
+                }
+            }, 2000);
+        }
+        
+        // 处理逃跑按钮触摸事件
+        function handleRunawayTouch(e) {
+            e.preventDefault();
+            handleRunawayClick();
+        }
+        
+        // 重置按钮位置
+        function resetButtonPosition(button) {
+            const maxX = window.innerWidth - 180;
+            const maxY = window.innerHeight - 70;
+            
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+            
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+        
+        // 随机移动按钮
+        function moveButtonRandomly(button) {
+            const maxX = window.innerWidth - 180;
+            const maxY = window.innerHeight - 70;
+            
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+            
+            button.style.transition = 'all 0.4s ease';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+            button.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+            
+            // 随机改变按钮文字和颜色
+            const texts = ['抓不到我！', '在这里！', '嘿嘿！', '来啊！', '你追不到！', '嘿嘿嘿！', '休想！'];
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            
+            const gradients = [
+                'from-love to-magic',
+                'from-sky to-magic',
+                'from-gold to-love',
+                'from-morandi-pink to-love',
+                'from-morandi-purple to-sky'
+            ];
+            const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+            
+            button.className = `fixed z-20 mobile-runaway-btn mobile-btn bg-gradient-to-r ${randomGradient} text-white font-bold btn-glow-strong shadow-xl animate-pulse-simple hardware-accelerated`;
+            button.innerHTML = `<i class="fa fa-running mr-3 hardware-accelerated"></i>${randomText}`;
+            
+            // 创建丰富的粒子效果
+            createRichParticles(button, 8);
+        }
+        
+        // 处理逃跑按钮点击
+        function handleRunawayClick() {
+            const runawayBtn = document.getElementById('runawayBtn');
+            if (runawayBtn) {
+                moveButtonRandomly(runawayBtn);
+                
+                // 显示调皮消息
+                const messages = [
+                    '嘿嘿，抓到我再说！', 
+                    '别闹了，接受吧！', 
+                    '我就知道你喜欢我！',
+                    '还不放弃吗？',
+                    '你果然很喜欢我！',
+                    '哈哈，真执着！'
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                showNotification(randomMessage);
+            }
+        }
+        
+        // 创建丰富的粒子效果
+        function createRichParticles(element, count) {
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const particleTypes = ['💖', '💕', '💘', '✨', '⭐', '💫', '🦋', '🌈', '💎', '🌸'];
+                    const particle = document.createElement('div');
+                    particle.className = 'celebration-element hardware-accelerated';
+                    particle.textContent = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+                    particle.style.left = (rect.left + rect.width / 2 + (Math.random() - 0.5) * 100) + 'px';
+                    particle.style.top = (rect.top + rect.height / 2 + (Math.random() - 0.5) * 100) + 'px';
+                    particle.style.fontSize = (Math.random() * 12 + 8) + 'px';
+                    particle.style.animation = `heartFloat ${Math.random() * 0.5 + 0.5}s ease-out forwards`;
+                    
+                    // 随机动画
+                    const animations = ['star-twinkle', 'magic-sparkle', 'butterfly-float', 'heart-beat'];
+                    particle.classList.add(animations[Math.floor(Math.random() * animations.length)]);
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // 创建超丰富的庆祝动画
+        function createSuperCelebration() {
+            console.log('创建超丰富的庆祝动画');
+            
+            // 立即创建爆炸效果
+            createExplosionEffect();
+            
+            // 阶段1：爱心雨（0-3秒）- 数量翻倍
+            setTimeout(() => {
+                for (let i = 0; i < 100; i++) {
+                    setTimeout(() => {
+                        createFallingHeart();
+                    }, i * 100);
+                }
+            }, 0);
+            
+            // 阶段2：蝴蝶飞舞（1-6秒）- 数量增加
+            setTimeout(() => {
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        createButterfly();
+                    }, i * 150);
+                }
+            }, 1000);
+            
+            // 阶段3：星星闪烁（2-8秒）- 增加魔法星星
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createTwinklingStar();
+                    }, i * 120);
+                }
+            }, 2000);
+            
+            // 阶段4：五彩纸屑（3-10秒）- 数量翻倍
+            setTimeout(() => {
+                for (let i = 0; i < 120; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                    }, i * 80);
+                }
+            }, 3000);
+            
+            // 阶段5：魔法粒子（4-12秒）- 增加魔法效果
+            setTimeout(() => {
+                for (let i = 0; i < 60; i++) {
+                    setTimeout(() => {
+                        createMagicParticle();
+                    }, i * 120);
+                }
+            }, 4000);
+            
+            // 阶段6：泡泡上升（5-15秒）- 增加泡泡数量
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createBubble();
+                    }, i * 150);
+                }
+            }, 5000);
+            
+            // 阶段7：烟花效果（6-14秒）- 新增烟花动画
+            setTimeout(() => {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createFirework();
+                    }, i * 500);
+                }
+            }, 6000);
+            
+            // 阶段8：爆炸文字（8-16秒）- 新增文字爆炸
+            setTimeout(() => {
+                createExplodingText();
+            }, 8000);
+            
+            // 庆祝结束，重置状态
+            setTimeout(() => {
+                isCelebrating = false;
+            }, 16000);
+        }
+        
+        // 创建爆炸效果
+        function createExplosionEffect() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const explosion = document.createElement('div');
+                    explosion.className = 'firework-element hardware-accelerated explosion';
+                    explosion.textContent = ['💥', '✨', '🎇', '🎆'][Math.floor(Math.random() * 4)];
+                    explosion.style.left = centerX + 'px';
+                    explosion.style.top = centerY + 'px';
+                    explosion.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    explosion.style.transform = `translate(-50%, -50%)`;
+                    
+                    document.body.appendChild(explosion);
+                    
+                    setTimeout(() => {
+                        if (explosion.parentNode) {
+                            explosion.parentNode.removeChild(explosion);
+                        }
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // 创建下落爱心
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'celebration-element hardware-accelerated heart-beat';
+            heart.textContent = ['💖', '💕', '💘', '💝', '💓'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '-30px';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animation = `heartFloat ${Math.random() * 2 + 3}s ease-out forwards`;
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 5000);
+        }
+        
+        // 创建蝴蝶
+        function createButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'celebration-element hardware-accelerated butterfly-float';
+            butterfly.textContent = '🦋';
+            butterfly.style.left = Math.random() * 100 + '%';
+            butterfly.style.top = Math.random() * 50 + '%';
+            butterfly.style.fontSize = (Math.random() * 25 + 20) + 'px';
+            butterfly.style.animation = `floatSideways ${Math.random() * 3 + 4}s ease-in-out infinite`;
+            
+            document.body.appendChild(butterfly);
+            
+            setTimeout(() => {
+                if (butterfly.parentNode) {
+                    butterfly.parentNode.removeChild(butterfly);
+                }
+            }, 6000);
+        }
+        
+        // 创建闪烁星星
+        function createTwinklingStar() {
+            const star = document.createElement('div');
+            star.className = 'celebration-element hardware-accelerated star-twinkle';
+            star.textContent = ['⭐', '💫', '✨', '🌟', '⚡'][Math.floor(Math.random() * 5)];
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            star.style.animation = `starTwinkle ${Math.random() * 2 + 3}s ease-in-out infinite`;
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                if (star.parentNode) {
+                    star.parentNode.removeChild(star);
+                }
+            }, 4000);
+        }
+        
+        // 创建五彩纸屑
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'celebration-element hardware-accelerated';
+            confetti.style.width = (Math.random() * 8 + 6) + 'px';
+            confetti.style.height = (Math.random() * 16 + 12) + 'px';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-30px';
+            confetti.style.background = ['#ff6b9d', '#9b59b6', '#3498db', '#ffd700', '#ff8a80', '#81c784', '#64b5f6', '#ba68c8', '#ffb74d', '#aed581'][Math.floor(Math.random() * 10)];
+            confetti.style.borderRadius = '3px';
+            confetti.style.animation = `confettiFloat ${Math.random() * 2 + 3}s ease-out forwards`;
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                if (confetti.parentNode) {
+                    confetti.parentNode.removeChild(confetti);
+                }
+            }, 5000);
+        }
+        
+        // 创建魔法粒子
+        function createMagicParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'celebration-element hardware-accelerated magic-sparkle';
+            particle.textContent = ['✨', '💫', '🌟', '💎', '🌈', '🔮', '⚡', '💖'][Math.floor(Math.random() * 8)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.fontSize = (Math.random() * 12 + 8) + 'px';
+            particle.style.animation = `magicSparkle ${Math.random() * 2 + 2}s ease-in-out infinite`;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 3000);
+        }
+        
+        // 创建泡泡
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'celebration-element hardware-accelerated bubble-rise';
+            bubble.style.width = (Math.random() * 25 + 15) + 'px';
+            bubble.style.height = (Math.random() * 25 + 15) + 'px';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.bottom = '-30px';
+            bubble.style.background = 'rgba(255, 107, 157, 0.3)';
+            bubble.style.border = '2px solid rgba(255, 107, 157, 0.6)';
+            bubble.style.borderRadius = '50%';
+            bubble.style.animation = `bubbleRise ${Math.random() * 3 + 4}s ease-out forwards`;
+            
+            document.body.appendChild(bubble);
+            
+            setTimeout(() => {
+                if (bubble.parentNode) {
+                    bubble.parentNode.removeChild(bubble);
+                }
+            }, 7000);
+        }
+        
+        // 创建烟花
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework-element hardware-accelerated fireworks';
+            firework.textContent = ['🎇', '🎆', '💥', '✨', '🌟'][Math.floor(Math.random() * 5)];
+            firework.style.left = Math.random() * 100 + '%';
+            firework.style.top = Math.random() * 50 + '%';
+            firework.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            
+            document.body.appendChild(firework);
+            
+            setTimeout(() => {
+                if (firework.parentNode) {
+                    firework.parentNode.removeChild(firework);
+                }
+            }, 1500);
+        }
+        
+        // 创建爆炸文字
+        function createExplodingText() {
+            const texts = ['LOVE', 'YES', '💕', '💖', '❤️', '🎉'];
+            const colors = ['#ff6b9d', '#9b59b6', '#3498db', '#ffd700'];
+            
+            for (let i = 0; i < texts.length; i++) {
+                setTimeout(() => {
+                    const text = document.createElement('div');
+                    text.className = 'celebration-element hardware-accelerated tada';
+                    text.textContent = texts[i];
+                    text.style.left = Math.random() * 100 + '%';
+                    text.style.top = Math.random() * 100 + '%';
+                    text.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    text.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    text.style.fontWeight = 'bold';
+                    
+                    document.body.appendChild(text);
+                    
+                    setTimeout(() => {
+                        if (text.parentNode) {
+                            text.parentNode.removeChild(text);
+                        }
+                    }, 2000);
+                }, i * 300);
+            }
+        }
+        
+        // 显示雀跃话语
+        function showExcitedMessages() {
+            console.log('显示雀跃话语');
+            
+            // 在屏幕各个位置显示雀跃话语
+            for (let i = 0; i < excitedMessages.length; i++) {
+                setTimeout(() => {
+                    const message = document.createElement('div');
+                    message.className = 'excited-text hardware-accelerated';
+                    message.textContent = excitedMessages[i];
+                    message.style.left = Math.random() * 80 + 10 + '%';
+                    message.style.top = Math.random() * 80 + 10 + '%';
+                    message.style.transform = 'translate(-50%, -50%)';
+                    message.style.animationDelay = (Math.random() * 0.5) + 's';
+                    
+                    document.body.appendChild(message);
+                    
+                    setTimeout(() => {
+                        if (message.parentNode) {
+                            message.parentNode.removeChild(message);
+                        }
+                    }, 3000);
+                }, i * 500);
+            }
+            
+            // 持续显示更多雀跃话语
+            let messageIndex = 0;
+            const messageInterval = setInterval(() => {
+                if (!isCelebrating) {
+                    clearInterval(messageInterval);
+                    return;
+                }
+                
+                const message = document.createElement('div');
+                message.className = 'excited-text hardware-accelerated';
+                message.textContent = excitedMessages[messageIndex % excitedMessages.length];
+                message.style.left = Math.random() * 80 + 10 + '%';
+                message.style.top = Math.random() * 80 + 10 + '%';
+                message.style.transform = 'translate(-50%, -50%)';
+                
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.parentNode.removeChild(message);
+                    }
+                }, 3000);
+                
+                messageIndex++;
+            }, 1000);
+        }
+        
+        // 显示惊喜模态框
+        function showSurpriseModal() {
+            console.log('显示惊喜模态框');
+            surpriseModal.classList.remove('hidden');
+            
+            // 添加惊喜粒子效果
+            createSurpriseParticles();
+        }
+        
+        // 处理惊喜按钮
+        function handleSurprise() {
+            console.log('处理惊喜按钮');
+            surpriseModal.classList.add('hidden');
+            
+            // 显示通知
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 4000);
+            
+            // 添加最后一波庆祝动画
+            createFinalCelebration();
+        }
+        
+        // 显示通知
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed z-20 bg-gradient-to-r from-love to-magic text-white py-2 px-4 rounded-xl shadow-xl animate-float hardware-accelerated';
+            notification.textContent = message;
+            notification.style.left = '50%';
+            notification.style.top = '50%';
+            notification.style.transform = 'translate(-50%, -50%)';
+            notification.style.fontSize = '1rem';
+            notification.style.zIndex = '30';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 2000);
+        }
+        
+        // 开始丰富的背景装饰
+        function startRichBackgroundDecorations() {
+            console.log('开始丰富的背景装饰');
+            
+            // 定期添加各种背景装饰
+            backgroundInterval = setInterval(() => {
+                if (!isCelebrating) { // 庆祝时不添加背景装饰
+                    createBackgroundDecoration();
+                }
+            }, 1500);
+        }
+        
+        // 创建背景装饰
+        function createBackgroundDecoration() {
+            const decorations = [
+                { type: 'heart', content: ['💖', '💕', '💘'], animation: 'floatUp', duration: 6 },
+                { type: 'star', content: ['⭐', '💫', '✨'], animation: 'floatUp', duration: 5 },
+                { type: 'butterfly', content: ['🦋'], animation: 'floatSideways', duration: 8 },
+                { type: 'magic', content: ['✨', '🌟'], animation: 'magicSparkle', duration: 4 }
+            ];
+            
+            const decoration = decorations[Math.floor(Math.random() * decorations.length)];
+            const element = document.createElement('div');
+            element.className = 'floating-decoration hardware-accelerated';
+            element.textContent = decoration.content[Math.floor(Math.random() * decoration.content.length)];
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() > 0.5 ? '100vh' : '-30px';
+            element.style.fontSize = (Math.random() * 10 + 8) + 'px';
+            element.style.opacity = '0.7';
+            element.style.animation = `${decoration.animation} ${Math.random() * 2 + decoration.duration}s ease-out forwards`;
+            
+            document.body.appendChild(element);
+            
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            }, (decoration.duration + 2) * 1000);
+        }
+        
+        // 开始背景粒子效果
+        function startBackgroundParticles() {
+            console.log('开始背景粒子效果');
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createBackgroundParticle();
+                }, i * 500);
+            }
+        }
+        
+        // 创建背景粒子
+        function createBackgroundParticle() {
+            const particles = ['•', '◦', '○', '•', '◦'];
+            const particle = document.createElement('div');
+            particle.className = 'background-particle hardware-accelerated star-twinkle';
+            particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.fontSize = (Math.random() * 4 + 2) + 'px';
+            particle.style.color = ['#ff6b9d', '#9b59b6', '#3498db', '#ffd700'][Math.floor(Math.random() * 4)];
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            particle.style.animation = `starTwinkle ${Math.random() * 3 + 4}s ease-in-out infinite`;
+            
+            document.body.appendChild(particle);
+            
+            // 定期重新定位
+            setInterval(() => {
+                if (particle.parentNode && !isCelebrating) {
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                }
+            }, Math.random() * 10000 + 5000);
+        }
+        
+        // 创建模态框粒子效果
+        function createModalParticles() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'celebration-element hardware-accelerated';
+                    particle.textContent = ['💖', '✨', '⭐', '💕'][Math.floor(Math.random() * 4)];
+                    particle.style.left = '50%';
+                    particle.style.top = '50%';
+                    particle.style.fontSize = (Math.random() * 12 + 8) + 'px';
+                    particle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+                    particle.style.animation = `sparkle ${Math.random() * 0.5 + 0.5}s ease-out forwards`;
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // 创建惊喜粒子效果
+        function createSurpriseParticles() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'celebration-element hardware-accelerated magic-sparkle';
+                    particle.textContent = ['🎉', '🎊', '💖', '💕', '⭐', '✨', '💫', '🌈'][Math.floor(Math.random() * 8)];
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.fontSize = (Math.random() * 16 + 12) + 'px';
+                    particle.style.animation = `magicSparkle ${Math.random() * 2 + 2}s ease-in-out infinite`;
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 3000);
+                }, i * 150);
+            }
+        }
+        
+        // 创建最终庆祝动画
+        function createFinalCelebration() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'celebration-element hardware-accelerated heart-beat';
+                    particle.textContent = ['💖', '💕', '💘', '🎊', '🎉'][Math.floor(Math.random() * 5)];
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    particle.style.animation = `heartFloat ${Math.random() * 2 + 2}s ease-out forwards`;
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 3000);
+                }, i * 200);
+            }
+        }
+        
+        // 清理函数
+        function cleanup() {
+            console.log('清理资源');
+            if (runawayInterval) {
+                clearInterval(runawayInterval);
+            }
+            if (backgroundInterval) {
+                clearInterval(backgroundInterval);
+            }
+            
+            // 清理所有动画元素
+            const animationElements = document.querySelectorAll('.celebration-element, .floating-decoration, .background-particle, .firework-element, .excited-text');
+            animationElements.forEach(el => {
+                if (el.parentNode) {
+                    el.parentNode.removeChild(el);
+                }
+            });
+        }
+        
+        // 页面卸载时清理
+        window.addEventListener('beforeunload', cleanup);
+        
+        // 输出初始化完成信息
+        console.log('🎉 梦幻浪漫告白 - 雀跃版 已成功加载！');
+        console.log('📱 专为移动端优化，性能流畅');
+        console.log('💖 超丰富的庆祝动画：爆炸效果、烟花、爱心雨、蝴蝶飞舞、星星闪烁');
+        console.log('🏃‍♂️ 智能逃跑模式已就绪');
+        console.log('🎊 雀跃话语系统：点击"我愿意"后显示开心的话语');
+        console.log('🚀 所有功能正常工作！');
+    </script>
+</body>
+</html>
